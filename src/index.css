@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Outfit;
+}
+
+#root{
+  min-height: 100vh;
+  display: flex;
+}
+
+.sidebar img{
+  width: 20px;;
+}
+.sidebar .bottom-item{
+  padding-right: 10px;
+  cursor: pointer;
+}
+.main-container{
+  max-width: 900px;
+  margin: auto;
+}
+.main .greet span{
+  background: -webkit-linear-gradient(16deg,#4b90ff, #ff5546 );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.main .cards{
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr) );
+  
+}
