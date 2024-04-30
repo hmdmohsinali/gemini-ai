@@ -23,6 +23,9 @@
   padding-right: 10px;
   cursor: pointer;
 }
+.sidebar .recent{
+  animation: fadeIn 1.5s;
+}
 
 .main .greet span{
   background: -webkit-linear-gradient(16deg,#4b90ff, #ff5546 );
@@ -65,4 +68,24 @@
 
   }
 
+}
+
+@media (max-width: 600px){
+  .sidebar{
+    display: none;
+  }
+  .main-bottom input{
+    flex: none;
+    width: 150px;
+
+  }
+  .main-bottom img{
+    width: 20px;
+  }
+  .search-box{
+    padding: 5px 10px;
+  }
+  .search-box div{
+    gap: 5px;
+  }
 }
