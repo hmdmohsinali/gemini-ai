@@ -13,8 +13,12 @@ const ContextProvider = (props) =>{
     const [showResult, setShowResult] = useState(false);
     const [loading, setLoading] = useState(false);
     const [resultData, setResultData] = useState("");
-    
 
+    const newChat = ()=>{
+        setLoading(false);
+        setShowResult(false);
+
+    }
     
 
 
@@ -24,9 +28,17 @@ const ContextProvider = (props) =>{
         setResultData("")
         setLoading(true)
         setShowResult(true)
-        setRecentPrompt(input)
-        setPrevPrompts(prev=>[...prev,input])
-        const response = await runChat(input)
+        let response;
+        if (prompt !== undefined) {
+            response = await runChat(prompt)
+            setRecentPrompt(prompt)
+        }
+        else{
+            setPrevPrompts(prev=>[...prev,input])
+            setRecentPrompt(input)
+            response= await runChat(input)
+        }
+        
         let formattedMessage = response.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
 
         // Format italic text
@@ -58,7 +70,8 @@ const ContextProvider = (props) =>{
         resultData,
         input,
         setInput,
-        onSent
+        onSent,
+        newChat
 
     }
 
