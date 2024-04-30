@@ -22,10 +22,7 @@
   padding-right: 10px;
   cursor: pointer;
 }
-.main-container{
-  max-width: 900px;
-  margin: auto;
-}
+
 .main .greet span{
   background: -webkit-linear-gradient(16deg,#4b90ff, #ff5546 );
   -webkit-background-clip: text;
@@ -34,4 +31,27 @@
 .main .cards{
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr) );
   
+}
+
+.result::-webkit-scrollbar {
+  display: none;
+}
+
+.loader hr{
+  border-radius: 4px;
+  border: none;
+  background-color: #f6f7f8;
+  background: linear-gradient(to right, #9ed7ff, #ffffff, #9ed7ff );
+  background-size: 800px 50px ;
+  height: 20px;
+  animation: loader 3s infinite linear;
+}
+@keyframes loader{
+  0%{
+    background-position: -800px 0px;
+
+  }
+  100%{
+    background-position: 800px 0px;
+  }
 }
