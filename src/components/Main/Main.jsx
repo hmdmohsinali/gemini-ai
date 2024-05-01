@@ -7,6 +7,8 @@ const Main = () => {
   const {
     onSent,
     recentPrompt,
+    setRecentPrompt,
+    setPrevPrompts,
     showResult,
     loading,
     resultData,
@@ -22,7 +24,8 @@ const Main = () => {
 
   const handleCardClick = (data) => {
     setInput(data);
-
+    setRecentPrompt(data)
+    setPrevPrompts(prev=>[...prev,data])
     onSent(data);
   };
 
@@ -37,7 +40,7 @@ const Main = () => {
           <>
             <div className="greet my-[50px] mx-[0px] text-[56px] text-[#c4c7c5] font-[500] p-[20px] ">
               <p>
-                <span>Hello, Dev.</span>
+                <span>Hello, There.</span>
               </p>
               <p>How can I help you today?</p>
             </div>
@@ -46,12 +49,12 @@ const Main = () => {
                 className="card h-[200px] p-[15px] bg-[#f0f4f9] rounded-[10px] relative cursor-pointer hover:bg-[#dfe4ea]"
                 onClick={() =>
                   handleCardClick(
-                    "Suggest beautiful places to see on an upcoming road trip"
+                    "Plan a road trip for me in upcoming summer"
                   )
                 }
               >
                 <p className="text-[#585858] text-[17px]">
-                  Suggest beautiful places to see on an upcoming road trip
+                  Plan a road trip for me in upcoming summer
                 </p>
                 <img
                   className="w-[35px] p-[5px] absolute bg-white rounded-[20px] bottom-[10px] right-[10px]"
@@ -62,11 +65,11 @@ const Main = () => {
               <div
                 className="card h-[200px] p-[15px] bg-[#f0f4f9] rounded-[10px] relative cursor-pointer hover:bg-[#dfe4ea]"
                 onClick={() =>
-                  handleCardClick("Briefly decribe this concpt: Urban planning")
+                  handleCardClick("Tell me the more about religions in world")
                 }
               >
                 <p className="text-[#585858] text-[17px]">
-                  Briefly decribe this concpt: Urban planning
+                  Tell me the more about religions in world
                 </p>
                 <img
                   className="w-[35px] p-[5px] absolute bg-white rounded-[20px] bottom-[10px] right-[10px]"
@@ -78,12 +81,12 @@ const Main = () => {
                 className="card h-[200px] p-[15px] bg-[#f0f4f9] rounded-[10px] relative cursor-pointer hover:bg-[#dfe4ea]"
                 onClick={() =>
                   handleCardClick(
-                    "Brainstorm team bonding activities for our work retreat"
+                    "Brainstorm name for my fantasy football team"
                   )
                 }
               >
                 <p className="text-[#585858] text-[17px]">
-                  Brainstorm team bonding activities for our work retreat
+                  Brainstorm name for my fantasy football team
                 </p>
                 <img
                   className="w-[35px] p-[5px] absolute bg-white rounded-[20px] bottom-[10px] right-[10px]"
@@ -95,12 +98,12 @@ const Main = () => {
                 className="card h-[200px] p-[15px] bg-[#f0f4f9] rounded-[10px] relative cursor-pointer hover:bg-[#dfe4ea]"
                 onClick={() =>
                   handleCardClick(
-                    "Improve the radability of the following code"
+                    "Tell me a fun fact about roman empire"
                   )
                 }
               >
                 <p className="text-[#585858] text-[17px]">
-                  Improve the radability of the following code
+                  Tell me a fun fact about roman empire
                 </p>
                 <img
                   className="w-[35px] p-[5px] absolute bg-white rounded-[20px] bottom-[10px] right-[10px]"
@@ -138,7 +141,7 @@ const Main = () => {
           </div>
         )}
 
-        <div className="main-bottom absolute bottom-0 w-[100%] max-w-[900ps] py-[0px] px-[20px] m-auto">
+        <div className="main-bottom absolute bottom-0 w-[100%] max-w-[900px] py-[0px] px-[20px] m-auto">
           <div className="search-box flex items-center justify-between gap-[20px] bg-[#f0f4f9] py-[10px] px-[20px] rounded-[20px]">
             <input
               className="flex-1 bg-transparent border-none outline-none text-[18px] p-[8px]"
